@@ -1,6 +1,6 @@
 # Functions Lab
 
-In this lab you will also explore serverless computing using Oracle Functions. 
+In this lab you will also explore serverless computing using Oracle Functions.
 Oracle Functions uses the open-source Fn engine.
 
 This document is meant to be an overview of the entire lab.  Throughout, you may
@@ -14,7 +14,7 @@ perform an action.
 
 Note:
 
-1. Make sure you use `clear-guest` or `clear-internet`. And NOT `clear-corporate`. 
+1. Make sure you use `clear-guest` or `clear-internet`. And NOT `clear-corporate`.
 
 2. If you are using virtualbox with the "fnlab.ova" image make sure you run the entire lab inside the "fnlab VM".
 
@@ -108,10 +108,10 @@ tutorial to see how easy it is.
 
 ## Section 3 - Oracle Functions
 
-Note: For this section you do NOT need the fn server on your machine. Your CLI will 
+Note: For this section you do NOT need the fn server on your machine. Your CLI will
 connect to the OracleFunctions cloud service.
 
-Oracle Functions is a fully managed serverless FaaS platform running in Oracle 
+Oracle Functions is a fully managed serverless FaaS platform running in Oracle
 Cloud. Functions uses open source Fn Project as it's underlying FaaS platform.
 
 ### 3.1) Setup Local Development Environment
@@ -133,7 +133,7 @@ Cloud. Functions uses open source Fn Project as it's underlying FaaS platform.
 
 ### 3.4) Troubleshooting Functions
 
-* If you haven't already, get a PaperTrail destination syslog endpoint by following steps 1-5 
+* If you haven't already, get a PaperTrail destination syslog endpoint by following steps 1-5
 from [Troubleshooting Fn](https://fnproject.io/tutorials/Troubleshooting/#LogCapture)
 
 * Update your app's syslog-url with the PaperTrail destination
@@ -171,7 +171,7 @@ from [Troubleshooting Fn](https://fnproject.io/tutorials/Troubleshooting/#LogCap
   >```
   > fn invoke ws<NNN>app node-fn --display-call-id
   >```
-  
+
   >```
   > echo -n '{"name":"DOAG"}' | fn invoke ws<NNN>app node-fn --display-call-id --content-type application/json
   >```
@@ -186,9 +186,8 @@ from [Troubleshooting Fn](https://fnproject.io/tutorials/Troubleshooting/#LogCap
 
 ### 3.5) Your Second Function
 
-* [Hello World - Go](3-3-GoHello.md)
+* [List Instance Resource Principals - Python](3-3-PyList-Instances-RP.md)
 
+### 3.6) Your Third Function
 
-### 3.6) Function to OCI Object Store
-
-* [Java Function to OCI Object Store](https://github.com/abhirockzz/fn-oci-object-store-workshop/blob/master/README_Fn_Service.md)
+* [Python Function to Invoke other Oracle Functions](3-4-PyInvoke-Function-RP.md)
