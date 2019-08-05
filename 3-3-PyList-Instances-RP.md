@@ -18,7 +18,7 @@ We will reuse the app you created in the [Hello World - Node](3-2-NodeHello.md) 
 Writing the Function
 ------------------
 ## Requirements
-  Update your requirements.txt file to contain the following:
+  Update your `requirements.txt` file to contain the following:
 
   ![user input icon](images/userinput.png)
   ```
@@ -111,10 +111,11 @@ Writing the Function
 
   Log in to https://console.us-ashburn-1.oraclecloud.com/
 
-  1. Click the Dropdown in the upper left corner, find Compute > Instances.
+  >1. Click the Dropdown in the upper left corner, find Compute > Instances.
 
-  2. Click Create Instance, and following the on-screen instructions
-    > Note: All of your compartments should be workshop
+  >2. Click Create Instance, and following the on-screen instructions
+
+  > Note: All of your compartments should be workshop
 
   Upon success, you should see all of the instances in your compartment appear in your terminal.
 
