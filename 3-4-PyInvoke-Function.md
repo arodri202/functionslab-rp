@@ -121,7 +121,7 @@ Writing the Function
             return c
   ```
 
-## get_app
+## The get_app method
   Copy and paste this method into your file. This method identifies an OCI Function app object by its name
 
   parameters:
