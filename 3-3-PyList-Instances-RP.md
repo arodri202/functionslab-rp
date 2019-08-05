@@ -107,6 +107,7 @@ Writing the Function
   That's because you should not have any instances right now!
 
 ## Creating an Instance
+  ![user input icon](images/userinput.png)
   Log in to https://console.us-ashburn-1.oraclecloud.com/
 
   1. Click the Dropdown in the upper left corner, find Compute > Instances.
@@ -128,6 +129,7 @@ Writing the Function
 
   In this workshop we will be changing the func.yaml file and verifying that the correct configuration has been created via the Oracle Console.
 
+  ![user input icon](images/userinput.png)
   Open your func.yaml file and add the following lines to the bottom.
   ```
   config:
@@ -137,12 +139,17 @@ Writing the Function
 
 ## Reading Function Configuration
   Open your `func.py` file, add the following import and global variable.
+
+  ![user input icon](images/userinput.png)
   ```python
   import os
 
   OCI_COMPARTMENT_ID = os.environ.get("OCI_COMPARTMENT_ID")
   ```
+
   Now go to your `do()` method and look for the line:
+
+  ![user input icon](images/userinput.png)
   ```python
   inst = client.list_instances(signer.compartment_id)
   ```
@@ -150,11 +157,15 @@ Writing the Function
 
 ## Redeploy and Verify
   Redeploy your function.
+
+  ![user input icon](images/userinput.png)
   >```
   >fn -v deploy --app ws<NNN>app
   >```
 
   To verify that you have the correct configuration. Go to the Oracle Console.
+
+  ![user input icon](images/userinput.png)
   1. Click the Dropdown menu and find Developer Services > Functions
   2. Find your application `ws<NNN>`
   3. Find your instance function `list-instances`

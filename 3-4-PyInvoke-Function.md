@@ -1,6 +1,7 @@
 # Using OCI Config and Command Line to Invoke an Oracle Function
 
 ## Create your Python development Environment
+
 ![user input icon](images/userinput.png)
   1. Verify pip is installed
     ```
@@ -26,7 +27,6 @@
     cd invoke-function
     touch invoke.py
     ```
-
 
   In this example we'll show how you can invoke an Oracle Function from a separate Oracle function with only the desired compartment name, application name, the function name, and a request payload by using a Resource Principal Security Signer to get authentication. We will use three API Clients exposed by the [OCI Python SDK](https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/index.html).
 
@@ -97,10 +97,12 @@ Writing the Function
   ```
 
 ## The get_compartment method
-  This method identifies the compartment ID by a given name within the particular tenancy
+  Copy and paste this method into your file. This method identifies the compartment ID by a given name within the particular tenancy
     :param oci_cfg: OCI auth config
     :param compartment_name: OCI tenancy compartment name
     :return: OCI tenancy compartment
+
+    ![user input icon](images/userinput.png)
   ```python
   def get_compartment(oci_cfg, compartment_name):
     identity_client = identity.IdentityClient(config=oci_cfg)
@@ -117,12 +119,14 @@ Writing the Function
   ```
 
 ## get_app
-  This method identifies an OCI Function app object by its name
+  Copy and paste this method into your file. This method identifies an OCI Function app object by its name
   parameters:
     functions_client: OCI Functions FunctionsManagementClient
     app_name: OCI Functions app name
     compartment: OCI tenancy compartment
   return: OCI Functions app
+
+  ![user input icon](images/userinput.png)
   ```python
   def get_app(functions_client, app_name, compartment):
     result = pagination.list_call_get_all_results(
@@ -139,13 +143,15 @@ Writing the Function
     ```
 
 ## get_function
-  This method identifies an OCI function object by its name
+  Copy and paste this method into your file. This method identifies an OCI function object by its name
   parameters:
     functions_client: OCI Functions FunctionsManagementClient
     app: OCI Functions app
     function_name: OCI Functions function name
   return: OCI Functions function
   ```python
+
+  ![user input icon](images/userinput.png)
   def get_function(functions_client, app, function_name):
     result = pagination.list_call_get_all_results(
         functions_client.list_functions,
