@@ -132,7 +132,7 @@ Writing the Function
             return app
 
     raise Exception("app not found")
-    ```
+  ```
 
 ## The get_function method
   Copy and paste this method into your file. This method identifies an OCI function object by its name
