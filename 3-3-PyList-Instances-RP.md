@@ -108,6 +108,7 @@ Writing the Function
 
 ## Creating an Instance
   ![user input icon](images/userinput.png)
+
   Log in to https://console.us-ashburn-1.oraclecloud.com/
 
   1. Click the Dropdown in the upper left corner, find Compute > Instances.
@@ -123,13 +124,14 @@ Writing the Function
   Currently, your function is looking for instances in the compartment that holds your deployed function. But what if we held all of our instances in a separate compartment? The following steps will show you how to create configuration for your function to be used during run time.
 
   There are currently 3 ways you can create Function Configuration.
-  1. Fn CLI
-  2. Functions page on Oracle Console
-  3. Modifying the func.yaml file
+  >1. Fn CLI
+  >2. Functions page on Oracle Console
+  >3. Modifying the func.yaml file
 
   In this workshop we will be changing the func.yaml file and verifying that the correct configuration has been created via the Oracle Console.
 
   ![user input icon](images/userinput.png)
+
   Open your func.yaml file and add the following lines to the bottom.
   ```
   config:
@@ -166,10 +168,10 @@ Writing the Function
   To verify that you have the correct configuration. Go to the Oracle Console.
 
   ![user input icon](images/userinput.png)
-  1. Click the Dropdown menu and find Developer Services > Functions
-  2. Find your application `ws<NNN>`
-  3. Find your instance function `list-instances`
-  4. Under resources on the left side of your screen, click Configuration.
-  5. You should see OCI_COMPARTMENT_ID and the value you passed in to your yaml file
+  >1. Click the Dropdown menu and find Developer Services > Functions
+  >2. Find your application `ws<NNN>`
+  >3. Find your instance function `list-instances`
+  >4. Under resources on the left side of your screen, click Configuration.
+  >5. You should see OCI_COMPARTMENT_ID and the value you passed in to your yaml file
 
   Now invoke your function and you should see the instances of the compartment you passed in!
