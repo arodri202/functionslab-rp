@@ -1,4 +1,4 @@
-# Resource Principle Function for Returning the Instances of the Calling Compartment.
+# Resource Principle Function for Returning the Instances of an OCI Compartment.
 
 ## Reuse your first app
 
@@ -23,8 +23,7 @@ Writing the Function
   ![user input icon](images/userinput.png)
   ```
   fdk
-  oci-cli
-  oci>=2.2.18
+  oci
   ```
 
 ## Open func.py
@@ -101,4 +100,65 @@ Writing the Function
   ```
   fn invoke ws<NNN>app list-instances
   ```
+  You should see an error that looks something like this!
+  ```
+  {"instances": "{'opc-request-id': 'E375A6...7ACD', 'code': 'NotAuthorizedOrNotFound', 'message': 'Authorization failed or requested resource not found.', 'status': 404}"}
+  ```
+  That's because you should not have any instances right now!
+
+## Creating an Instance
+  Log in to https://console.us-ashburn-1.oraclecloud.com/
+
+  1. Click the Dropdown in the upper left corner, find Compute > Instances.
+
+  2. Click Create Instance, and following the on-screen instructions
+    > Note: All of your compartments should be workshop
+
   Upon success, you should see all of the instances in your compartment appear in your terminal.
+
+  Invoke your function again and you should see your newly-created instance!
+
+## Creating Function Configuration
+  Currently, your function is looking for instances in the compartment that holds your deployed function. But what if we held all of our instances in a separate compartment? The following steps will show you how to create configuration for your function to be used during run time.
+
+  There are currently 3 ways you can create Function Configuration.
+  1. Fn CLI
+  2. Functions page on Oracle Console
+  3. Modifying the func.yaml file
+
+  In this workshop we will be changing the func.yaml file and verifying that the correct configuration has been created via the Oracle Console.
+
+  Open your func.yaml file and add the following lines to the bottom.
+  ```
+  config:
+    OCI_COMPARTMENT_ID: <TO BE FILLED>
+  ```
+  Now, navigate through the Oracle Console and select a compartment that does not correspond to your `ws<NNN>` compartment, copy the Compartment OCID and paste it.
+
+## Reading Function Configuration
+  Open your `func.py` file, add the following import and global variable.
+  ```python
+  import os
+
+  OCI_COMPARTMENT_ID = os.environ.get("OCI_COMPARTMENT_ID")
+  ```
+  Now go to your `do()` method and look for the line:
+  ```python
+  inst = client.list_instances(signer.compartment_id)
+  ```
+  Replace `signer.compartment_id` with your new global variable `OCI_COMPARTMENT_ID`
+
+## Redeploy and Verify
+  Redeploy your function.
+  >```
+  >fn -v deploy --app ws<NNN>app
+  >```
+
+  To verify that you have the correct configuration. Go to the Oracle Console.
+  1. Click the Dropdown menu and find Developer Services > Functions
+  2. Find your application `ws<NNN>`
+  3. Find your instance function `list-instances`
+  4. Under resources on the left side of your screen, click Configuration.
+  5. You should see OCI_COMPARTMENT_ID and the value you passed in to your yaml file
+
+  Now invoke your function and you should see the instances of the compartment you passed in!

@@ -190,4 +190,4 @@ from [Troubleshooting Fn](https://fnproject.io/tutorials/Troubleshooting/#LogCap
 
 ### 3.6) Your Third Function
 
-* [Python Function to Invoke other Oracle Functions](3-4-PyInvoke-Function-RP.md)
+* [Python Function to Invoke other Oracle Functions](3-4-PyInvoke-Function.md)
