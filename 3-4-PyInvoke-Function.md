@@ -133,6 +133,7 @@ Writing the Function
 
   return: OCI Functions app
 
+
   ![user input icon](images/userinput.png)
   ```python
   def get_app(functions_client, app_name, compartment):
@@ -160,7 +161,7 @@ Writing the Function
 
     function_name: OCI Functions function name
 
-  return: OCI Functions function
+    return: OCI Functions function
   ```python
 
   ![user input icon](images/userinput.png)
