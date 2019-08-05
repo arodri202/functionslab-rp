@@ -152,7 +152,7 @@ Writing the Function
 ## get_function
   Copy and paste this method into your file. This method identifies an OCI function object by its name
 
-  parameters:
+    parameters:
 
     functions_client: OCI Functions FunctionsManagementClient
 
