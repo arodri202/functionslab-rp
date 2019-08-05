@@ -99,12 +99,6 @@ Writing the Function
 ## The get_compartment method
   Copy and paste this method into your file. This method identifies the compartment ID by a given name within the particular tenancy
 
-    :param oci_cfg: OCI auth config
-
-    :param compartment_name: OCI tenancy compartment name
-
-    :return: OCI tenancy compartment
-
     ![user input icon](images/userinput.png)
   ```python
   def get_compartment(oci_cfg, compartment_name):
@@ -124,16 +118,6 @@ Writing the Function
 ## The get_app method
   Copy and paste this method into your file. This method identifies an OCI Function app object by its name
 
-  parameters:
-    functions_client: OCI Functions FunctionsManagementClient
-
-    app_name: OCI Functions app name
-
-    compartment: OCI tenancy compartment
-
-  return: OCI Functions app
-
-
   ![user input icon](images/userinput.png)
   ```python
   def get_app(functions_client, app_name, compartment):
@@ -150,21 +134,11 @@ Writing the Function
     raise Exception("app not found")
     ```
 
-## get_function
+## The get_function method
   Copy and paste this method into your file. This method identifies an OCI function object by its name
 
-    parameters:
-
-    functions_client: OCI Functions FunctionsManagementClient
-
-    app: OCI Functions app
-
-    function_name: OCI Functions function name
-
-    return: OCI Functions function
-  ```python
-
   ![user input icon](images/userinput.png)
+  ```python
   def get_function(functions_client, app, function_name):
     result = pagination.list_call_get_all_results(
         functions_client.list_functions,
