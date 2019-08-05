@@ -99,7 +99,7 @@ Writing the Function
 ## The get_compartment method
   Copy and paste this method into your file. This method identifies the compartment ID by a given name within the particular tenancy
 
-    ![user input icon](images/userinput.png)
+  ![user input icon](images/userinput.png)
   ```python
   def get_compartment(oci_cfg, compartment_name):
     identity_client = identity.IdentityClient(config=oci_cfg)
