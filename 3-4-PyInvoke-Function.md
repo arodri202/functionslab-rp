@@ -3,7 +3,7 @@
 ## Create your Python development Environment
 
 ![user input icon](images/userinput.png)
-  1. Verify pip is installed
+  >1. Verify pip is installed
     ```
     pip --version
     ```
@@ -11,17 +11,17 @@
     ```
     curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
     ```
-  2. Install Virtualenv
+  >2. Install Virtualenv
     ```
     pip install virutalenv
     ```
-  3. Create a Virtual Environment and install the OCI Python SDK
+  >3. Create a Virtual Environment and install the OCI Python SDK
     ```
     python3 -m venv .venv
     source .venv/bin/activate
     pip install oci
     ```
-  4. Create a new directory, enter it and create a new .py file
+  >4. Create a new directory, enter it and create a new .py file
     ```
     mkdir invoke-function
     cd invoke-function
@@ -31,11 +31,11 @@
   In this example we'll show how you can invoke an Oracle Function from a separate Oracle function with only the desired compartment name, application name, the function name, and a request payload by using a Resource Principal Security Signer to get authentication. We will use three API Clients exposed by the [OCI Python SDK](https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/index.html).
 
 
-  1. [IdentityClient](https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/api/identity/client/oci.identity.IdentityClient.html) is an API for managing users, groups, compartments, and policies, we will use it to find the compartment's OCID from its name.
+  >1. [IdentityClient](https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/api/identity/client/oci.identity.IdentityClient.html) is an API for managing users, groups, compartments, and policies, we will use it to find the compartment's OCID from its name.
 
-  2. [FunctionsManagementClient](https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/api/functions/client/oci.functions.FunctionsManagementClient.html) - is used for functions lifecycle management operations including creating, updating, and querying applications and functions
+  >2. [FunctionsManagementClient](https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/api/functions/client/oci.functions.FunctionsManagementClient.html) - is used for functions lifecycle management operations including creating, updating, and querying applications and functions
 
-  3. [FunctionsInvokeClient](https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/api/functions/client/oci.functions.FunctionsInvokeClient.html#oci.functions.FunctionsInvokeClient) - is used specifically for invoking functions
+  >3. [FunctionsInvokeClient](https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/api/functions/client/oci.functions.FunctionsInvokeClient.html#oci.functions.FunctionsInvokeClient) - is used specifically for invoking functions
 
 
 Writing the Function
@@ -98,8 +98,11 @@ Writing the Function
 
 ## The get_compartment method
   Copy and paste this method into your file. This method identifies the compartment ID by a given name within the particular tenancy
+
     :param oci_cfg: OCI auth config
+
     :param compartment_name: OCI tenancy compartment name
+
     :return: OCI tenancy compartment
 
     ![user input icon](images/userinput.png)
@@ -120,10 +123,14 @@ Writing the Function
 
 ## get_app
   Copy and paste this method into your file. This method identifies an OCI Function app object by its name
+
   parameters:
     functions_client: OCI Functions FunctionsManagementClient
+
     app_name: OCI Functions app name
+
     compartment: OCI tenancy compartment
+
   return: OCI Functions app
 
   ![user input icon](images/userinput.png)
@@ -144,10 +151,15 @@ Writing the Function
 
 ## get_function
   Copy and paste this method into your file. This method identifies an OCI function object by its name
+
   parameters:
+
     functions_client: OCI Functions FunctionsManagementClient
+
     app: OCI Functions app
+
     function_name: OCI Functions function name
+
   return: OCI Functions function
   ```python
 
